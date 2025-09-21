@@ -188,15 +188,15 @@ public class TileAeroheaterSolid extends TileMachineInventory implements ITickab
 
 		@Override
 		protected void resetRaiseClock() {
-			//5 seconds to reach 80 캜 (when Blower Furnace starts working)
+			//5 seconds to reach 80 째C (when Blower Furnace starts working)
 			if (temperature < 80) temperatureClock = 2;
-			//10 more seconds to reach 100 캜 (Blower Furnace reaches Furnace speed and 2 can get fueled at once)
+			//10 more seconds to reach 100 째C (Blower Furnace reaches Furnace speed and 2 can get fueled at once)
 			else if (temperature < 100) temperatureClock = 10;
-			//30 more seconds to reach 125 캜 (3 Blower Furnaces at once)
+			//30 more seconds to reach 125 째C (3 Blower Furnaces at once)
 			else if (temperature < 125) temperatureClock = 24;
-			//70 more seconds to reach 160 캜 (4 Blower Furnaces at once)
+			//70 more seconds to reach 160 째C (4 Blower Furnaces at once)
 			else if (temperature < 160) temperatureClock = 40;
-			//120 more seconds to reach 200 캜 (5 Blower Furnaces at once)
+			//120 more seconds to reach 200 째C (5 Blower Furnaces at once)
 			else temperatureClock = 60;
 		}
 
