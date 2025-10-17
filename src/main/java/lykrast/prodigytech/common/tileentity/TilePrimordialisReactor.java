@@ -5,7 +5,7 @@ import lykrast.prodigytech.common.capability.CapabilityHotAir;
 import lykrast.prodigytech.common.capability.HotAirMachine;
 import lykrast.prodigytech.common.init.ModItems;
 import lykrast.prodigytech.common.recipe.PrimordialisReactorManager;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.ProdigyInventoryHandler;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -87,10 +87,10 @@ public class TilePrimordialisReactor extends TileMachineInventory implements ITi
             		progressCycle = 1;
             	}
             	//Cycle has finished
-            	else if (progressCycle > Config.primordialisReactorCycleTime * 10)
+            	else if (progressCycle > Configuration.MACHINES.primordialisReactorCycleTime * 10)
             	{
             		cycle();
-            		if (progressPrimordium >= Config.primordialisReactorRequiredInput) makePrimordium();
+            		if (progressPrimordium >= Configuration.MACHINES.primordialisReactorRequiredInput) makePrimordium();
             		flag1 = true;
             		
             		//Start the next one if possible
@@ -154,12 +154,12 @@ public class TilePrimordialisReactor extends TileMachineInventory implements ITi
 	
 	@Override
 	public int getProgressLeft() {
-		return Config.primordialisReactorRequiredInput - progressPrimordium;
+		return Configuration.MACHINES.primordialisReactorRequiredInput - progressPrimordium;
 	}
 	
 	@Override
 	public int getMaxProgress() {
-		return Config.primordialisReactorRequiredInput;
+		return Configuration.MACHINES.primordialisReactorRequiredInput;
 	}
 
     @SideOnly(Side.CLIENT)

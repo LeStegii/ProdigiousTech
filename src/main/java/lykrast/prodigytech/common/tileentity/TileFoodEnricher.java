@@ -3,7 +3,7 @@ package lykrast.prodigytech.common.tileentity;
 import lykrast.prodigytech.common.block.BlockMachineActiveable;
 import lykrast.prodigytech.common.init.ModItems;
 import lykrast.prodigytech.common.item.ItemFoodPurified;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
@@ -13,7 +13,7 @@ public class TileFoodEnricher extends TileHotAirMachineSimple {
 		if (stack.getItem() != ModItems.purifiedFood) return false;
 		ItemFood item = (ItemFood)stack.getItem();
 		//Can't enrich food already at the caps
-		return !(item.getHealAmount(stack) >= Config.foodEnricherFoodCap && item.getSaturationModifier(stack) >= Config.foodEnricherSaturationCap);
+		return !(item.getHealAmount(stack) >= Configuration.MACHINES.foodEnricherFoodCap && item.getSaturationModifier(stack) >= Configuration.MACHINES.foodEnricherSaturationCap);
 	}
 	
 	public static int getProcessTime(ItemStack stack) {
@@ -21,11 +21,11 @@ public class TileFoodEnricher extends TileHotAirMachineSimple {
 		//Base formula is ((improved food restored + improved saturation restored) - (food restored + saturation restored))²
 		//Simplified with wolfram alpha to (2*(food * saturation ratio increase + saturation ratio * food increase + food increase * saturation ratio increase) + food increase)²
 		ItemFood food = (ItemFood) stack.getItem();
-		int value = food.getHealAmount(stack), valueInc = Config.foodEnricherFoodIncrease;
-		float saturation = food.getSaturationModifier(stack), saturationInc = Config.foodEnricherSaturationIncrease;
+		int value = food.getHealAmount(stack), valueInc = Configuration.MACHINES.foodEnricherFoodIncrease;
+		float saturation = food.getSaturationModifier(stack), saturationInc = Configuration.MACHINES.foodEnricherSaturationIncrease;
 		double time = 2*(value*saturationInc + saturation*valueInc + valueInc*saturationInc) + valueInc;
 		time *= time;
-		return (int)(time * Config.foodEnricherBaseTime);
+		return (int)(time * Configuration.MACHINES.foodEnricherBaseTime);
 	}
 	
 	public static ItemStack enrich(ItemStack stack) {
@@ -34,8 +34,8 @@ public class TileFoodEnricher extends TileHotAirMachineSimple {
 		int value = food.getHealAmount(stack);
 		float saturation = food.getSaturationModifier(stack);
 		
-		if (value < Config.foodEnricherFoodCap) value = Math.min(value + Config.foodEnricherFoodIncrease, Config.foodEnricherFoodCap);
-		if (saturation < Config.foodEnricherSaturationCap) saturation = Math.min(saturation + Config.foodEnricherSaturationIncrease, Config.foodEnricherSaturationCap);
+		if (value < Configuration.MACHINES.foodEnricherFoodCap) value = Math.min(value + Configuration.MACHINES.foodEnricherFoodIncrease, Configuration.MACHINES.foodEnricherFoodCap);
+		if (saturation < Configuration.MACHINES.foodEnricherSaturationCap) saturation = Math.min(saturation + Configuration.MACHINES.foodEnricherSaturationIncrease, Configuration.MACHINES.foodEnricherSaturationCap);
 		
 		return ItemFoodPurified.make(value, saturation);
 	}

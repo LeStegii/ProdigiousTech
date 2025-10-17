@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 
 import lykrast.prodigytech.common.gui.ContainerAeroheaterTartaric;
 import lykrast.prodigytech.common.tileentity.TileAeroheaterTartaric;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.TooltipUtil;
 import lykrast.prodigytech.core.ProdigyTech;
 import net.minecraft.client.renderer.GlStateManager;
@@ -73,7 +73,7 @@ public class GuiAeroheaterTartaric extends GuiInventory {
     }
 
     private int getStokerBurnLeftScaled(int pixels) {
-        return Math.min(tile.getField(3) * pixels / Config.tartaricStokerTime, pixels);
+        return Math.min(tile.getField(3) * pixels / Configuration.MACHINES.tartaricStokerTime, pixels);
     }
 
 	@Override

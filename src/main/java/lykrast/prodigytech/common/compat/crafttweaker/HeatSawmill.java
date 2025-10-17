@@ -7,7 +7,7 @@ import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.oredict.IOreDictEntry;
 import lykrast.prodigytech.common.recipe.HeatSawmillManager;
 import lykrast.prodigytech.common.recipe.SimpleRecipeSecondaryOutput;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.Optional;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -35,7 +35,7 @@ public class HeatSawmill {
 	public static void addRecipe(IItemStack in, IItemStack out, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (time <= 0) time = Config.heatSawmillProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.heatSawmillProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, time)));
 	}
 	
@@ -43,7 +43,7 @@ public class HeatSawmill {
 	public static void addRecipe(IItemStack in, IItemStack out, IItemStack sec, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (time <= 0) time = Config.heatSawmillProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.heatSawmillProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, sec, time)));
 	}
 	
@@ -51,7 +51,7 @@ public class HeatSawmill {
 	public static void addRecipe(IOreDictEntry in, IItemStack out, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (time <= 0) time = Config.heatSawmillProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.heatSawmillProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, time)));
 	}
 	
@@ -59,7 +59,7 @@ public class HeatSawmill {
 	public static void addRecipe(IOreDictEntry in, IItemStack out, IItemStack sec, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (time <= 0) time = Config.heatSawmillProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.heatSawmillProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, sec, time)));
 	}
 	

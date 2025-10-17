@@ -1,7 +1,7 @@
 package lykrast.prodigytech.common.tileentity;
 
 import lykrast.prodigytech.common.block.BlockLinearExtractor;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.ProdigyInventoryHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -33,7 +33,7 @@ public abstract class TileExtractor extends TileMachineInventory implements ITic
 			{
 				if (!world.isBlockPowered(pos))
 				{
-					clockTime = (short)Config.extractorDelay;
+					clockTime = (short) Configuration.AUTOMATION.extractorDelay;
 					work(BlockLinearExtractor.getFacing(getBlockMetadata()));
 				}
 			}
@@ -57,7 +57,7 @@ public abstract class TileExtractor extends TileMachineInventory implements ITic
 
 		ItemStack inside = getStackInSlot(0);
 		int initialCount = inside.getCount();
-		ItemStack toPush = inside.splitStack(Config.extractorMaxStack);
+		ItemStack toPush = inside.splitStack(Configuration.AUTOMATION.extractorMaxStack);
 		//Attempt to insert the stack in all slots
 		for (int i=0; i < handler.getSlots(); i++) {
 			toPush = handler.insertItem(i, toPush, false);
@@ -81,7 +81,7 @@ public abstract class TileExtractor extends TileMachineInventory implements ITic
 		if (handler == null) return false;
 		
 		for (int i=0; i < handler.getSlots(); i++) {
-			ItemStack extracted = handler.extractItem(i, Config.extractorMaxStack, true);
+			ItemStack extracted = handler.extractItem(i, Configuration.AUTOMATION.extractorMaxStack, true);
 			if (!extracted.isEmpty()) {
 				ItemStack remainder = invHandler.insertItem(0, extracted, true);
 				//Insertion successful

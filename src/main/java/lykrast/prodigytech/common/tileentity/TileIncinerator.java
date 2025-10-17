@@ -2,7 +2,7 @@ package lykrast.prodigytech.common.tileentity;
 
 import lykrast.prodigytech.common.block.BlockMachineActiveable;
 import lykrast.prodigytech.common.init.ModItems;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.ItemStack;
 
 public class TileIncinerator extends TileHotAirMachineSimple {
@@ -42,7 +42,7 @@ public class TileIncinerator extends TileHotAirMachineSimple {
         	{
             	if (processTimeMax <= 0)
             	{
-            		processTimeMax = Config.incineratorProcessTime * 10;
+            		processTimeMax = Configuration.MACHINES.incineratorProcessTime * 10;
             		processTime = processTimeMax;
             	}
             	else if (processTime <= 0)
@@ -52,7 +52,7 @@ public class TileIncinerator extends TileHotAirMachineSimple {
             		
             		if (canProcess())
             		{
-            			processTimeMax = Config.incineratorProcessTime * 10;
+            			processTimeMax = Configuration.MACHINES.incineratorProcessTime * 10;
                 		processTime = processTimeMax;
             		}
             		else
@@ -87,7 +87,7 @@ public class TileIncinerator extends TileHotAirMachineSimple {
 	{
 		getStackInSlot(0).shrink(1);
 		
-		if (world.rand.nextFloat() < Config.incineratorChance)
+		if (world.rand.nextFloat() < Configuration.MACHINES.incineratorChance)
 		{
 			ItemStack result = new ItemStack(ModItems.ash);
 			ItemStack output = getStackInSlot(1);

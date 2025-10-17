@@ -6,7 +6,7 @@ import lykrast.prodigytech.common.block.BlockHotAirMachine;
 import lykrast.prodigytech.common.capability.CapabilityHotAir;
 import lykrast.prodigytech.common.capability.HotAirAeroheater;
 import lykrast.prodigytech.common.init.ModItems;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.ProdigyInventoryHandler;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
@@ -94,7 +94,7 @@ public class TileAeroheaterTartaric extends TileMachineInventory implements ITic
 				}
 				if (shouldStoker) {
 					//Update burn time
-					stokerBurnTime = Config.tartaricStokerTime;
+					stokerBurnTime = Configuration.MACHINES.tartaricStokerTime;
 					
 					//Remove item
 					shouldDirty = true;
@@ -140,7 +140,7 @@ public class TileAeroheaterTartaric extends TileMachineInventory implements ITic
 	}
 	
 	public int getStokerMax() {
-		return Config.tartaricStokerTime;
+		return Configuration.MACHINES.tartaricStokerTime;
 	}
 
     @Override

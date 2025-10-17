@@ -2,7 +2,7 @@ package lykrast.prodigytech.common.recipe;
 
 import lykrast.prodigytech.common.init.ModBlocks;
 import lykrast.prodigytech.common.init.ModItems;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.RecipeUtil;
 import net.minecraft.block.BlockStone;
 import net.minecraft.init.Blocks;
@@ -14,12 +14,12 @@ public class MagneticReassemblerManager extends SimpleRecipeManager {
 	
 	public SimpleRecipe addRecipe(ItemStack in, ItemStack out)
 	{
-		return addRecipe(in, out, Config.magneticReassemblerProcessTime);
+		return addRecipe(in, out, Configuration.MACHINES.magneticReassemblerProcessTime);
 	}
 	
 	public SimpleRecipe addRecipe(String inOre, ItemStack out)
 	{
-		return addRecipe(inOre, out, Config.magneticReassemblerProcessTime);
+		return addRecipe(inOre, out, Configuration.MACHINES.magneticReassemblerProcessTime);
 	}
 	
 	@Override
@@ -37,22 +37,22 @@ public class MagneticReassemblerManager extends SimpleRecipeManager {
 		addRecipe("cobblestoneCharred", new ItemStack(ModBlocks.charredStone));
 		
 		addRecipe("dustCoal", new ItemStack(Items.COAL));
-		if (!Config.autoOreRecipes)
+		if (!Configuration.MACHINES.autoOreRecipes)
 		{
 			addRecipe("dustIron", new ItemStack(Items.IRON_INGOT));
-			addRecipe("dustTinyIron", new ItemStack(Items.IRON_NUGGET), Config.magneticReassemblerProcessTime / 9);
+			addRecipe("dustTinyIron", new ItemStack(Items.IRON_NUGGET), Configuration.MACHINES.magneticReassemblerProcessTime / 9);
 			addRecipe("dustGold", new ItemStack(Items.GOLD_INGOT));
-			addRecipe("dustTinyGold", new ItemStack(Items.GOLD_NUGGET), Config.magneticReassemblerProcessTime / 9);
+			addRecipe("dustTinyGold", new ItemStack(Items.GOLD_NUGGET), Configuration.MACHINES.magneticReassemblerProcessTime / 9);
 			addRecipe("dustDiamond", new ItemStack(Items.DIAMOND));
 			addRecipe("dustEmerald", new ItemStack(Items.EMERALD));
 		}
 		addRecipe("dustQuartz", new ItemStack(Items.QUARTZ));
 		
 		addRecipe("dustFerramic", new ItemStack(ModItems.ferramicIngot));
-		addRecipe("dustTinyFerramic", new ItemStack(ModItems.ferramicNugget), Config.magneticReassemblerProcessTime / 9);
+		addRecipe("dustTinyFerramic", new ItemStack(ModItems.ferramicNugget), Configuration.MACHINES.magneticReassemblerProcessTime / 9);
 		addRecipe("dustEnergion", new ItemStack(ModItems.energionCrystalSeed));
 		
-		addRecipe(new ItemStack(ModItems.infernoFuel), new ItemStack(ModItems.infernoCrystal), Config.magneticReassemblerProcessTime * 2);
+		addRecipe(new ItemStack(ModItems.infernoFuel), new ItemStack(ModItems.infernoCrystal), Configuration.MACHINES.magneticReassemblerProcessTime * 2);
 		addRecipe(new ItemStack(Items.SUGAR), new ItemStack(ModItems.sugarCube));
 	}
 

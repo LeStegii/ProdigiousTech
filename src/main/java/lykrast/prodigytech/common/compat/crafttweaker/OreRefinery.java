@@ -7,7 +7,7 @@ import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.oredict.IOreDictEntry;
 import lykrast.prodigytech.common.recipe.OreRefineryManager;
 import lykrast.prodigytech.common.recipe.SimpleRecipeSecondaryOutput;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.Optional;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -35,7 +35,7 @@ public class OreRefinery {
 	public static void addRecipe(IItemStack in, IItemStack out, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (time <= 0) time = Config.oreRefineryProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.oreRefineryProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, time)));
 	}
 	
@@ -43,9 +43,9 @@ public class OreRefinery {
 	public static void addRecipe(IItemStack in, IItemStack out, IItemStack sec, @Optional float chance, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (chance <= 0) chance = Config.oreRefineryChance;
+		if (chance <= 0) chance = Configuration.MACHINES.oreRefineryChance;
 		if (chance > 1) chance = 1;
-		if (time <= 0) time = Config.oreRefineryProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.oreRefineryProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, sec, chance, time)));
 	}
 	
@@ -53,7 +53,7 @@ public class OreRefinery {
 	public static void addRecipe(IOreDictEntry in, IItemStack out, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (time <= 0) time = Config.oreRefineryProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.oreRefineryProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, time)));
 	}
 	
@@ -61,9 +61,9 @@ public class OreRefinery {
 	public static void addRecipe(IOreDictEntry in, IItemStack out, IItemStack sec, @Optional float chance, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (chance <= 0) chance = Config.oreRefineryChance;
+		if (chance <= 0) chance = Configuration.MACHINES.oreRefineryChance;
 		if (chance > 1) chance = 1;
-		if (time <= 0) time = Config.oreRefineryProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.oreRefineryProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, sec, chance, time)));
 	}
 	

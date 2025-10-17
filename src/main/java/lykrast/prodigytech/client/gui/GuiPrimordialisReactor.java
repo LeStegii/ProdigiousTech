@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 
 import lykrast.prodigytech.common.gui.ContainerPrimordialisReactor;
 import lykrast.prodigytech.common.tileentity.TilePrimordialisReactor;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.TooltipUtil;
 import lykrast.prodigytech.core.ProdigyTech;
 import net.minecraft.client.renderer.GlStateManager;
@@ -40,7 +40,7 @@ public class GuiPrimordialisReactor extends GuiInventory {
 		//Cycle
 	    if (TilePrimordialisReactor.isProcessing(tile))
 	    {
-	        int k = getFieldScaled(0, 28, 0, Config.primordialisReactorCycleTime * 10);
+	        int k = getFieldScaled(0, 28, 0, Configuration.MACHINES.primordialisReactorCycleTime * 10);
 		    this.drawTexturedModalRect(guiLeft + 63, guiTop + 30 + (28 - k), 176, 35 + (28 - k), 12, k + 1);
 	    }
 	
@@ -52,7 +52,7 @@ public class GuiPrimordialisReactor extends GuiInventory {
 	    this.drawTexturedModalRect(guiLeft + 92, guiTop + 16 + (17 - l), 176, 17 + (17 - l), 18, l + 1);
 	
 	    //Primordium
-	    int m = getFieldScaled(1, 62, 0, Config.primordialisReactorRequiredInput);
+	    int m = getFieldScaled(1, 62, 0, Configuration.MACHINES.primordialisReactorRequiredInput);
 	    this.drawTexturedModalRect(guiLeft + 77, guiTop + 35, 176, 0, m, 17);
 	}
 

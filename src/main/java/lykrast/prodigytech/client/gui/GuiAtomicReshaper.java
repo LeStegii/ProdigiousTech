@@ -7,7 +7,7 @@ import com.google.common.collect.ImmutableList;
 
 import lykrast.prodigytech.common.gui.ContainerAtomicReshaper;
 import lykrast.prodigytech.common.tileentity.TileAtomicReshaper;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.TooltipUtil;
 import lykrast.prodigytech.core.ProdigyTech;
 import net.minecraft.client.renderer.GlStateManager;
@@ -70,7 +70,7 @@ public class GuiAtomicReshaper extends GuiInventory {
 	    this.drawTexturedModalRect(guiLeft + 43, guiTop + 16 + (17 - l), 176, 17 + (17 - l), 18, l + 1);
 	
 	    //Primordium
-	    l = getFieldScaled(4, 52, 0, Config.atomicReshaperMaxPrimordium * 100);
+	    l = getFieldScaled(4, 52, 0, Configuration.MACHINES.atomicReshaperMaxPrimordium * 100);
 	    this.drawTexturedModalRect(guiLeft + 37, guiTop + 17 + (52 - l), 176, 35 + (52 - l), 4, l);
 	}
 

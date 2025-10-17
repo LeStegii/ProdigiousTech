@@ -7,8 +7,7 @@ import lykrast.prodigytech.common.compat.ProdigyTechTOP;
 import lykrast.prodigytech.common.gui.ProdigyTechGuiHandler;
 import lykrast.prodigytech.common.recipe.HeatSawmillManager;
 import lykrast.prodigytech.common.recipe.ZorraAltarManager;
-import lykrast.prodigytech.common.util.Config;
-import net.minecraftforge.common.config.Configuration;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
@@ -18,7 +17,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 public class CommonProxy {
-	public static Configuration config;
+	public static net.minecraftforge.common.config.Configuration config;
 	
 	public SimpleNetworkWrapper createNetworkChannel() {
 		SimpleNetworkWrapper channel = NetworkRegistry.INSTANCE.newSimpleChannel(ProdigyTech.MODID);
@@ -26,10 +25,6 @@ public class CommonProxy {
 	}
 	
 	public void preInit(FMLPreInitializationEvent e) {
-		File directory = e.getModConfigurationDirectory();
-        config = new Configuration(new File(directory.getPath(), "prodigy_tech.cfg"));
-        Config.readConfig();
-        
         NetworkRegistry.INSTANCE.registerGuiHandler(ProdigyTech.instance, new ProdigyTechGuiHandler());
         CapabilityHotAir.register();
         

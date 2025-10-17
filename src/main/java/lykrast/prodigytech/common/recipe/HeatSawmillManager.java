@@ -2,7 +2,7 @@ package lykrast.prodigytech.common.recipe;
 
 import lykrast.prodigytech.common.init.ModBlocks;
 import lykrast.prodigytech.common.init.ModItems;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -18,29 +18,29 @@ public class HeatSawmillManager extends SimpleRecipeManagerSecondaryOutput {
 	
 	public SimpleRecipeSecondaryOutput addRecipe(ItemStack in, ItemStack out)
 	{
-		return addRecipe(new SimpleRecipeSecondaryOutput(in, out, Config.heatSawmillProcessTime));
+		return addRecipe(new SimpleRecipeSecondaryOutput(in, out, Configuration.MACHINES.heatSawmillProcessTime));
 	}
 	
 	public SimpleRecipeSecondaryOutput addRecipe(String inOre, ItemStack out)
 	{
-		return addRecipe(new SimpleRecipeSecondaryOutput(inOre, out, Config.heatSawmillProcessTime));
+		return addRecipe(new SimpleRecipeSecondaryOutput(inOre, out, Configuration.MACHINES.heatSawmillProcessTime));
 	}
 	
 	public SimpleRecipeSecondaryOutput addRecipe(ItemStack in, ItemStack out, ItemStack secondary)
 	{
-		return addRecipe(new SimpleRecipeSecondaryOutput(in, out, secondary, Config.heatSawmillProcessTime));
+		return addRecipe(new SimpleRecipeSecondaryOutput(in, out, secondary, Configuration.MACHINES.heatSawmillProcessTime));
 	}
 	
 	public SimpleRecipeSecondaryOutput addRecipe(String inOre, ItemStack out, ItemStack secondary)
 	{
-		return addRecipe(new SimpleRecipeSecondaryOutput(inOre, out, secondary, Config.heatSawmillProcessTime));
+		return addRecipe(new SimpleRecipeSecondaryOutput(inOre, out, secondary, Configuration.MACHINES.heatSawmillProcessTime));
 	}
 
 	@Override
 	public void init() {
-		addRecipe("plankWood", new ItemStack(Items.STICK, (int)(2 * Config.heatSawmillStickMultiplier)), new ItemStack(ModItems.sawdust));
+		addRecipe("plankWood", new ItemStack(Items.STICK, (int)(2 * Configuration.MACHINES.heatSawmillStickMultiplier)), new ItemStack(ModItems.sawdust));
 		
-		if (!Config.heatSawmillAutoPlankRecipes) {
+		if (!Configuration.MACHINES.heatSawmillAutoPlankRecipes) {
 			for (int i=0;i<=3;i++)
 				registerPlank(new ItemStack(Blocks.LOG, 1, i), new ItemStack(Blocks.PLANKS, 4, i));
 			for (int i=0;i<=1;i++)
@@ -59,7 +59,7 @@ public class HeatSawmillManager extends SimpleRecipeManagerSecondaryOutput {
 	//From Thermal Expansion (and modified a bit)
 	//https://github.com/CoFH/ThermalExpansion/blob/1.12/src/main/java/cofh/thermalexpansion/util/managers/machine/SawmillManager.java
 	public void registerPlanks() {
-		if (!Config.heatSawmillAutoPlankRecipes) return;
+		if (!Configuration.MACHINES.heatSawmillAutoPlankRecipes) return;
 		
 		InventoryCraftingFalse tempCrafting = new InventoryCraftingFalse(3, 3);
 
@@ -81,7 +81,7 @@ public class HeatSawmillManager extends SimpleRecipeManagerSecondaryOutput {
 	}
 	
 	private void registerPlank(ItemStack log, ItemStack plank) {
-		plank.setCount(Math.min(plank.getMaxStackSize(), (int)(plank.getCount() * Config.heatSawmillPlankMultiplier)));
+		plank.setCount(Math.min(plank.getMaxStackSize(), (int)(plank.getCount() * Configuration.MACHINES.heatSawmillPlankMultiplier)));
 		addRecipe(log, plank, new ItemStack(ModItems.sawdust));
 	}
 	

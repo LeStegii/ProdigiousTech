@@ -2,7 +2,7 @@ package lykrast.prodigytech.common.item;
 
 import java.util.List;
 
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.TooltipUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,7 +19,7 @@ public class ItemHeatCapacitor extends ItemInfoShift implements IHeatCapacitor {
 	public ItemHeatCapacitor(int temperature) {
 		this.temperature = temperature;
 		setMaxStackSize(1);
-        setMaxDamage(Config.heatCapacitorDuration);
+        setMaxDamage(Configuration.POWER.heatCapacitorDuration);
 	}
 	
 	@SuppressWarnings("deprecation")

@@ -7,7 +7,7 @@ import java.util.List;
 import lykrast.prodigytech.client.gui.GuiAtomicReshaper;
 import lykrast.prodigytech.common.init.ModItems;
 import lykrast.prodigytech.common.recipe.AtomicReshaperManager.AtomicReshaperRecipe;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableAnimated;
@@ -54,7 +54,7 @@ public class AtomicReshaperWrapper implements IRecipeWrapper, ITooltipCallback<I
 		
 		arrow = guiHelper.createAnimatedDrawable(guiHelper.createDrawable(GuiAtomicReshaper.GUI, 176, 0, 48, 17), recipe.getTimeTicks(), IDrawableAnimated.StartDirection.LEFT, false);
 		
-		primordiumScale = primordiumAmount * 52 / (Config.atomicReshaperMaxPrimordium * 100);
+		primordiumScale = primordiumAmount * 52 / (Configuration.MACHINES.atomicReshaperMaxPrimordium * 100);
 		primordiumGauge = guiHelper.createDrawable(GuiAtomicReshaper.GUI, 176, 35 + (52 - primordiumScale), 4, primordiumScale);
 	}
 

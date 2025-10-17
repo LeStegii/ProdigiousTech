@@ -9,7 +9,7 @@ import lykrast.prodigytech.common.recipe.PrimordialisReactorManager;
 import lykrast.prodigytech.common.recipe.RotaryGrinderManager;
 import lykrast.prodigytech.common.recipe.SoldererManager;
 import lykrast.prodigytech.common.tileentity.TileFuelProcessor;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.RecipeUtil;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -42,7 +42,7 @@ public class ModRecipes {
 	
 	public static void makeOreRecipes() {
 		//Create automatic recipes for Rotary Grinder, Magnetic Reassembler and Ore Refinery
-		if (!Config.autoOreRecipes) return;
+		if (!Configuration.MACHINES.autoOreRecipes) return;
 		
 		//Borrowed from Immersive Engineering
 		//https://github.com/BluSunrize/ImmersiveEngineering/blob/master/src/main/java/blusunrize/immersiveengineering/common/IERecipes.java
@@ -59,7 +59,7 @@ public class ModRecipes {
 				if (RecipeUtil.oreExists("dust" + ore))
 				{
 					ItemStack output = RecipeUtil.getPreferredOreStack("dust" + ore);
-					output.setCount(Config.rotaryGrinderOreMultiplier);
+					output.setCount(Configuration.MACHINES.rotaryGrinderOreMultiplier);
 					RotaryGrinderManager.INSTANCE.addRecipe(name, output);
 					
 					OreRefineryManager.INSTANCE.addOreRecipe(ore, name, "dust" + ore);
@@ -67,7 +67,7 @@ public class ModRecipes {
 				else if (RecipeUtil.oreExists("gem" + ore))
 				{
 					ItemStack output = RecipeUtil.getPreferredOreStack("gem" + ore);
-					output.setCount(Config.rotaryGrinderOreMultiplier);
+					output.setCount(Configuration.MACHINES.rotaryGrinderOreMultiplier);
 					RotaryGrinderManager.INSTANCE.addRecipe(name, output);
 					
 					OreRefineryManager.INSTANCE.addOreRecipe(ore, name, "gem" + ore);
@@ -103,7 +103,7 @@ public class ModRecipes {
 
 				if (RecipeUtil.oreExists("dustTiny" + ore))
 				{
-					RotaryGrinderManager.INSTANCE.addRecipe(name, RecipeUtil.getPreferredOreStack("dustTiny" + ore), Config.rotaryGrinderProcessTime / 9);
+					RotaryGrinderManager.INSTANCE.addRecipe(name, RecipeUtil.getPreferredOreStack("dustTiny" + ore), Configuration.MACHINES.rotaryGrinderProcessTime / 9);
 				}
 			}
 			//block -> Rotary Grinder processes into 9 dust
@@ -116,13 +116,13 @@ public class ModRecipes {
 				{
 					ItemStack output = RecipeUtil.getPreferredOreStack("dust" + ore);
 					output.setCount(9);
-					RotaryGrinderManager.INSTANCE.addRecipe(name, output, Config.rotaryGrinderProcessTime * 9);
+					RotaryGrinderManager.INSTANCE.addRecipe(name, output, Configuration.MACHINES.rotaryGrinderProcessTime * 9);
 				}
 				else if (RecipeUtil.oreExists("gem" + ore))
 				{
 					ItemStack output = RecipeUtil.getPreferredOreStack("gem" + ore);
 					output.setCount(9);
-					RotaryGrinderManager.INSTANCE.addRecipe(name, output, Config.rotaryGrinderProcessTime * 9);
+					RotaryGrinderManager.INSTANCE.addRecipe(name, output, Configuration.MACHINES.rotaryGrinderProcessTime * 9);
 				}
 			}
 			//dustTiny -> Magnetic Reassembler processes into nugget
@@ -134,7 +134,7 @@ public class ModRecipes {
 				if (RecipeUtil.oreExists("nugget" + ore))
 				{
 					MagneticReassemblerManager.INSTANCE.addRecipe(name, 
-							RecipeUtil.getPreferredOreStack("nugget" + ore), Config.magneticReassemblerProcessTime / 9);
+							RecipeUtil.getPreferredOreStack("nugget" + ore), Configuration.MACHINES.magneticReassemblerProcessTime / 9);
 				}
 			}
 			//dust -> Magnetic Reassembler processes into ingot or gem

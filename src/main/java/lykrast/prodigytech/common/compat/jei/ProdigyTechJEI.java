@@ -2,7 +2,7 @@ package lykrast.prodigytech.common.compat.jei;
 
 import lykrast.prodigytech.client.gui.*;
 import lykrast.prodigytech.common.init.ModBlocks;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.core.ProdigyTech;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IJeiHelpers;
@@ -30,7 +30,7 @@ public class ProdigyTechJEI implements IModPlugin {
 		ExplosionFurnaceCategory.registerRecipes(registry);
 		ExplosionFurnaceExplosiveCategory.registerRecipes(registry);
 		ExplosionFurnaceDampenerCategory.registerRecipes(registry);
-		if (Config.incineratorChance > 0 && Config.incineratorJEI) IncineratorCategory.registerRecipes(registry);
+		if (Configuration.MACHINES.incineratorChance > 0 && Configuration.MACHINES.incineratorJEI) IncineratorCategory.registerRecipes(registry);
 		RotaryGrinderCategory.registerRecipes(registry);
 		HeatSawmillCategory.registerRecipes(registry);
 		SoldererCategory.registerRecipes(registry);
@@ -44,7 +44,7 @@ public class ProdigyTechJEI implements IModPlugin {
 		registry.addRecipeCatalyst(new ItemStack(ModBlocks.explosionFurnace), ExplosionFurnaceCategory.UID);
 		registry.addRecipeCatalyst(new ItemStack(ModBlocks.explosionFurnace), ExplosionFurnaceExplosiveCategory.UID);
 		registry.addRecipeCatalyst(new ItemStack(ModBlocks.explosionFurnace), ExplosionFurnaceDampenerCategory.UID);
-		if (Config.incineratorChance > 0 && Config.incineratorJEI) registry.addRecipeCatalyst(new ItemStack(ModBlocks.incinerator), IncineratorCategory.UID);
+		if (Configuration.MACHINES.incineratorChance > 0 && Configuration.MACHINES.incineratorJEI) registry.addRecipeCatalyst(new ItemStack(ModBlocks.incinerator), IncineratorCategory.UID);
 		registry.addRecipeCatalyst(new ItemStack(ModBlocks.rotaryGrinder), RotaryGrinderCategory.UID);
 		registry.addRecipeCatalyst(new ItemStack(ModBlocks.heatSawmill), HeatSawmillCategory.UID);
 		registry.addRecipeCatalyst(new ItemStack(ModBlocks.solderer), SoldererCategory.UID);
@@ -61,7 +61,7 @@ public class ProdigyTechJEI implements IModPlugin {
 		
 		//Clickable areas
 		registry.addRecipeClickArea(GuiExplosionFurnace.class, 79, 34, 42, 17, ExplosionFurnaceCategory.UID, ExplosionFurnaceExplosiveCategory.UID, ExplosionFurnaceDampenerCategory.UID);
-		if (Config.incineratorChance > 0 && Config.incineratorJEI) registry.addRecipeClickArea(GuiIncinerator.class, 79, 35, 24, 17, IncineratorCategory.UID);
+		if (Configuration.MACHINES.incineratorChance > 0 && Configuration.MACHINES.incineratorJEI) registry.addRecipeClickArea(GuiIncinerator.class, 79, 35, 24, 17, IncineratorCategory.UID);
 		registry.addRecipeClickArea(GuiRotaryGrinder.class, 79, 35, 24, 17, RotaryGrinderCategory.UID);
 		registry.addRecipeClickArea(GuiHeatSawmill.class, 79, 35, 24, 17, HeatSawmillCategory.UID);
 		registry.addRecipeClickArea(GuiSolderer.class, 79, 35, 24, 17, SoldererCategory.UID);
@@ -84,7 +84,7 @@ public class ProdigyTechJEI implements IModPlugin {
 		registry.addRecipeCategories(new ExplosionFurnaceCategory(guiHelper));
 		registry.addRecipeCategories(new ExplosionFurnaceExplosiveCategory(guiHelper));
 		registry.addRecipeCategories(new ExplosionFurnaceDampenerCategory(guiHelper));
-		if (Config.incineratorChance > 0 && Config.incineratorJEI) registry.addRecipeCategories(new IncineratorCategory(guiHelper));
+		if (Configuration.MACHINES.incineratorChance > 0 && Configuration.MACHINES.incineratorJEI) registry.addRecipeCategories(new IncineratorCategory(guiHelper));
 		registry.addRecipeCategories(new RotaryGrinderCategory(guiHelper));
 		registry.addRecipeCategories(new HeatSawmillCategory(guiHelper));
 		registry.addRecipeCategories(new SoldererCategory(guiHelper));

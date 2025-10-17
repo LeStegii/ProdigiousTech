@@ -2,7 +2,7 @@ package lykrast.prodigytech.client.gui;
 
 import lykrast.prodigytech.common.gui.ContainerMagneticReassembler;
 import lykrast.prodigytech.common.tileentity.TileMagneticReassembler;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.math.MathHelper;
 
@@ -18,7 +18,7 @@ public class GuiMagneticReassembler extends GuiHotAirMachineSimple {
 
         if (i == 0)
         {
-            i = Config.magneticReassemblerProcessTime * 10;
+            i = Configuration.MACHINES.magneticReassemblerProcessTime * 10;
         }
         
         int j = MathHelper.clamp(i - tile.getField(0), 0, i);

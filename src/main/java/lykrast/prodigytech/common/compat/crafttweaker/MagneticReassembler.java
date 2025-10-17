@@ -7,7 +7,7 @@ import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.oredict.IOreDictEntry;
 import lykrast.prodigytech.common.recipe.MagneticReassemblerManager;
 import lykrast.prodigytech.common.recipe.SimpleRecipe;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.Optional;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -21,7 +21,7 @@ public class MagneticReassembler {
 	public static void addRecipe(IItemStack in, IItemStack out, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (time <= 0) time = Config.magneticReassemblerProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.magneticReassemblerProcessTime;
 		CraftTweakerAPI.apply(new Add(CraftTweakerHelper.simpleRecipe(in, out, time)));
 	}
 	
@@ -29,7 +29,7 @@ public class MagneticReassembler {
 	public static void addRecipe(IOreDictEntry in, IItemStack out, @Optional int time) {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
-		if (time <= 0) time = Config.magneticReassemblerProcessTime;
+		if (time <= 0) time = Configuration.MACHINES.magneticReassemblerProcessTime;
 		CraftTweakerAPI.apply(new Add(CraftTweakerHelper.simpleRecipe(in, out, time)));
 	}
 	

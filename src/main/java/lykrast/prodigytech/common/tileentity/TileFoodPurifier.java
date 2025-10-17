@@ -3,7 +3,7 @@ package lykrast.prodigytech.common.tileentity;
 import lykrast.prodigytech.common.block.BlockMachineActiveable;
 import lykrast.prodigytech.common.init.ModItems;
 import lykrast.prodigytech.common.item.ItemFoodPurified;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -19,7 +19,7 @@ public class TileFoodPurifier extends TileHotAirMachineSimple {
 		//Assumes it is a valid input
 		//Formula is (food restored + saturation restored) * config time
 		ItemFood food = (ItemFood) stack.getItem();
-		return (int)(food.getHealAmount(stack) * (1 + 2 * food.getSaturationModifier(stack)) * Config.foodPurifierBaseTime);
+		return (int)(food.getHealAmount(stack) * (1 + 2 * food.getSaturationModifier(stack)) * Configuration.MACHINES.foodPurifierBaseTime);
 	}
 	
 	//Tile stuff

@@ -7,7 +7,7 @@ import com.google.common.collect.ImmutableList;
 
 import lykrast.prodigytech.common.gui.ContainerSolderer;
 import lykrast.prodigytech.common.tileentity.TileSolderer;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.TooltipUtil;
 import lykrast.prodigytech.core.ProdigyTech;
 import net.minecraft.client.renderer.GlStateManager;
@@ -44,7 +44,7 @@ public class GuiSolderer extends GuiInventory {
 
         if (i == 0)
         {
-            i = Config.soldererProcessTime * 10;
+            i = Configuration.MACHINES.soldererProcessTime * 10;
         }
         
         int j = MathHelper.clamp(i - tile.getField(0), 0, i);
@@ -72,7 +72,7 @@ public class GuiSolderer extends GuiInventory {
 	    this.drawTexturedModalRect(guiLeft + 82, guiTop + 16 + (17 - l), 176, 17 + (17 - l), 18, l + 1);
 	
 	    //Gold
-	    l = getFieldScaled(4, 52, 0, Config.soldererMaxGold);
+	    l = getFieldScaled(4, 52, 0, Configuration.MACHINES.soldererMaxGold);
 	    this.drawTexturedModalRect(guiLeft + 49, guiTop + 17 + (52 - l), 176, 35 + (52 - l), 4, l);
 	}
 

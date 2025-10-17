@@ -5,7 +5,7 @@ import java.util.List;
 
 import lykrast.prodigytech.common.block.BlockMachineActiveable;
 import lykrast.prodigytech.common.init.ModItems;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
@@ -36,7 +36,7 @@ public class TileFuelProcessor extends TileHotAirMachineSimple {
 	
 	public static int getProcessTime(ItemStack stack) {
 		//Assumes it is a valid input
-		return (int)(Math.sqrt(TileEntityFurnace.getItemBurnTime(stack) / 200) * Config.fuelProcessorBaseTime);
+		return (int)(Math.sqrt(TileEntityFurnace.getItemBurnTime(stack) / 200) * Configuration.MACHINES.fuelProcessorBaseTime);
 	}
 	
 	public static int getPelletsAmount(ItemStack stack) {

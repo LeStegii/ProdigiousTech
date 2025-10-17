@@ -1,7 +1,7 @@
 package lykrast.prodigytech.common.tileentity;
 
 import lykrast.prodigytech.common.block.BlockMachineActiveable;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 
@@ -64,7 +64,7 @@ public class TileBlowerFurnace extends TileHotAirMachineSimple {
         	{
             	if (processTimeMax <= 0)
             	{
-            		processTimeMax = Config.blowerFurnaceProcessTime * 10;
+            		processTimeMax = Configuration.MACHINES.blowerFurnaceProcessTime * 10;
             		processTime = processTimeMax;
             	}
             	else if (processTime <= 0)
@@ -74,7 +74,7 @@ public class TileBlowerFurnace extends TileHotAirMachineSimple {
             		
             		if (canProcess())
             		{
-            			processTimeMax = Config.blowerFurnaceProcessTime * 10;
+            			processTimeMax = Configuration.MACHINES.blowerFurnaceProcessTime * 10;
                 		processTime = processTimeMax;
             		}
             		else

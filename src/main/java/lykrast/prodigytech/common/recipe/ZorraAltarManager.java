@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -23,16 +23,16 @@ public class ZorraAltarManager {
 	
 	public static void init() {
 		//Vanilla
-		SWORD.addEnchantBonusLevel(Enchantments.SHARPNESS, Config.altarBonusLvl);
-		SWORD.addEnchantBonusLevel(Enchantments.SMITE, Config.altarBonusLvl);
-		SWORD.addEnchantBonusLevel(Enchantments.BANE_OF_ARTHROPODS, Config.altarBonusLvl);
-		SWORD.addEnchantBonusLevel(Enchantments.FIRE_ASPECT, Config.altarBonusLvl);
-		SWORD.addEnchantBonusLevel(Enchantments.KNOCKBACK, Config.altarBonusLvl);
-		SWORD.addEnchantBonusLevel(Enchantments.LOOTING, Config.altarBonusLvl);
-		SWORD.addEnchantBonusLevel(Enchantments.SWEEPING, Config.altarBonusLvl);
+		SWORD.addEnchantBonusLevel(Enchantments.SHARPNESS, Configuration.ALTAR.altarBonusLvl);
+		SWORD.addEnchantBonusLevel(Enchantments.SMITE, Configuration.ALTAR.altarBonusLvl);
+		SWORD.addEnchantBonusLevel(Enchantments.BANE_OF_ARTHROPODS, Configuration.ALTAR.altarBonusLvl);
+		SWORD.addEnchantBonusLevel(Enchantments.FIRE_ASPECT, Configuration.ALTAR.altarBonusLvl);
+		SWORD.addEnchantBonusLevel(Enchantments.KNOCKBACK, Configuration.ALTAR.altarBonusLvl);
+		SWORD.addEnchantBonusLevel(Enchantments.LOOTING, Configuration.ALTAR.altarBonusLvl);
+		SWORD.addEnchantBonusLevel(Enchantments.SWEEPING, Configuration.ALTAR.altarBonusLvl);
 		
-		BOW.addEnchantBonusLevel(Enchantments.POWER, Config.altarBonusLvl);
-		BOW.addEnchantBonusLevel(Enchantments.PUNCH, Config.altarBonusLvl);
+		BOW.addEnchantBonusLevel(Enchantments.POWER, Configuration.ALTAR.altarBonusLvl);
+		BOW.addEnchantBonusLevel(Enchantments.PUNCH, Configuration.ALTAR.altarBonusLvl);
 		BOW.addEnchant(Enchantments.FLAME, 1);
 		BOW.addEnchant(Enchantments.INFINITY, 1);
 
@@ -43,8 +43,8 @@ public class ZorraAltarManager {
 
 		//EnderCore
 		if (Loader.isModLoaded("endercore")) {
-			SWORD.addModdedEnchantBonusLevel("endercore:xpboost", Config.altarBonusLvl, checkerSword);
-			BOW.addModdedEnchantBonusLevel("endercore:xpboost", Config.altarBonusLvl, checkerBow);
+			SWORD.addModdedEnchantBonusLevel("endercore:xpboost", Configuration.ALTAR.altarBonusLvl, checkerSword);
+			BOW.addModdedEnchantBonusLevel("endercore:xpboost", Configuration.ALTAR.altarBonusLvl, checkerBow);
 		}
 		
 		//Ender IO
@@ -64,10 +64,10 @@ public class ZorraAltarManager {
 		if (Loader.isModLoaded("cofhcore")) {
 			//CoFH Core makes enchants unapplicable and useless instead of not registering them when disabled individually
 			//So we use this dummy ItemStack to check if it's applicable
-			SWORD.addModdedEnchantBonusLevel("cofhcore:insight", Config.altarBonusLvl, checkerSword);
-			SWORD.addModdedEnchantBonusLevel("cofhcore:leech", Config.altarBonusLvl, checkerSword);
-			SWORD.addModdedEnchantBonusLevel("cofhcore:vorpal", Config.altarBonusLvl, checkerSword);
-			BOW.addModdedEnchantBonusLevel("cofhcore:insight", Config.altarBonusLvl, checkerBow);
+			SWORD.addModdedEnchantBonusLevel("cofhcore:insight", Configuration.ALTAR.altarBonusLvl, checkerSword);
+			SWORD.addModdedEnchantBonusLevel("cofhcore:leech", Configuration.ALTAR.altarBonusLvl, checkerSword);
+			SWORD.addModdedEnchantBonusLevel("cofhcore:vorpal", Configuration.ALTAR.altarBonusLvl, checkerSword);
+			BOW.addModdedEnchantBonusLevel("cofhcore:insight", Configuration.ALTAR.altarBonusLvl, checkerBow);
 			//Multishot doesn't work :(
 			//BOW.addModdedEnchantBonusLevel("cofhcore:multishot", 0, checkerBow);
 
@@ -80,8 +80,8 @@ public class ZorraAltarManager {
 					BOW.addEnchant(soulbound, 1);
 				}
 				else {
-					SWORD.addEnchantBonusLevel(soulbound, Config.altarBonusLvl);
-					BOW.addEnchantBonusLevel(soulbound, Config.altarBonusLvl);
+					SWORD.addEnchantBonusLevel(soulbound, Configuration.ALTAR.altarBonusLvl);
+					BOW.addEnchantBonusLevel(soulbound, Configuration.ALTAR.altarBonusLvl);
 				}
 			}
 		}
@@ -89,26 +89,26 @@ public class ZorraAltarManager {
 		//Cyclic
 		if (Loader.isModLoaded("cyclicmagic")) {
 			SWORD.addModdedEnchant("cyclicmagic:enchantment.beheading", 1, checkerSword);
-			SWORD.addModdedEnchantBonusLevel("cyclicmagic:enchantment.lifeleech", Config.altarBonusLvl, checkerSword);
-			SWORD.addModdedEnchantBonusLevel("cyclicmagic:enchantment.venom", Config.altarBonusLvl, checkerSword);
+			SWORD.addModdedEnchantBonusLevel("cyclicmagic:enchantment.lifeleech", Configuration.ALTAR.altarBonusLvl, checkerSword);
+			SWORD.addModdedEnchantBonusLevel("cyclicmagic:enchantment.venom", Configuration.ALTAR.altarBonusLvl, checkerSword);
 			BOW.addModdedEnchant("cyclicmagic:enchantment.quickdraw", 1, checkerBow);
 			//Bugged
 			//BOW.addModdedEnchant("cyclicmagic:enchantment.multishot", 1, checkerBow);
 		}
 		
 		//Draconic Evolution
-		if (Loader.isModLoaded("draconicevolution")) SWORD.addModdedEnchantBonusLevel("draconicevolution:enchant_reaper", Config.altarBonusLvl, checkerSword);
+		if (Loader.isModLoaded("draconicevolution")) SWORD.addModdedEnchantBonusLevel("draconicevolution:enchant_reaper", Configuration.ALTAR.altarBonusLvl, checkerSword);
 		
 		//AbyssalCraft
-		if (Loader.isModLoaded("abyssalcraft")) SWORD.addModdedEnchantBonusLevel("abyssalcraft:light_pierce", Config.altarBonusLvl, checkerSword);
+		if (Loader.isModLoaded("abyssalcraft")) SWORD.addModdedEnchantBonusLevel("abyssalcraft:light_pierce", Configuration.ALTAR.altarBonusLvl, checkerSword);
 		
 		//Soul Shards Respawn
-		if (Loader.isModLoaded("soulshardsrespawn")) SWORD.addModdedEnchantBonusLevel("soulshardsrespawn:soul_stealer", Config.altarBonusLvl, checkerSword);
+		if (Loader.isModLoaded("soulshardsrespawn")) SWORD.addModdedEnchantBonusLevel("soulshardsrespawn:soul_stealer", Configuration.ALTAR.altarBonusLvl, checkerSword);
 		
 		//EvilCraft
 		if (Loader.isModLoaded("evilcraft")) {
-			SWORD.addModdedEnchantBonusLevel("evilcraft:life_stealing", Config.altarBonusLvl, checkerSword);
-			BOW.addModdedEnchantBonusLevel("evilcraft:poison_tip", Config.altarBonusLvl, checkerBow);
+			SWORD.addModdedEnchantBonusLevel("evilcraft:life_stealing", Configuration.ALTAR.altarBonusLvl, checkerSword);
+			BOW.addModdedEnchantBonusLevel("evilcraft:poison_tip", Configuration.ALTAR.altarBonusLvl, checkerBow);
 		}
 		
 		//Woot
@@ -116,10 +116,10 @@ public class ZorraAltarManager {
 		
 		//Apotheosis
 		if (Loader.isModLoaded("apotheosis")) {
-			SWORD.addModdedEnchantBonusLevel("apotheosis:hell_infusion", Config.altarBonusLvl, checkerSword);
-			SWORD.addModdedEnchantBonusLevel("apotheosis:mounted_strike", Config.altarBonusLvl, checkerSword);
-			SWORD.addModdedEnchantBonusLevel("apotheosis:scavenger", Config.altarBonusLvl, checkerSword);
-			SWORD.addModdedEnchantBonusLevel("apotheosis:capturing", Config.altarBonusLvl, checkerSword);
+			SWORD.addModdedEnchantBonusLevel("apotheosis:hell_infusion", Configuration.ALTAR.altarBonusLvl, checkerSword);
+			SWORD.addModdedEnchantBonusLevel("apotheosis:mounted_strike", Configuration.ALTAR.altarBonusLvl, checkerSword);
+			SWORD.addModdedEnchantBonusLevel("apotheosis:scavenger", Configuration.ALTAR.altarBonusLvl, checkerSword);
+			SWORD.addModdedEnchantBonusLevel("apotheosis:capturing", Configuration.ALTAR.altarBonusLvl, checkerSword);
 			//Better than Infinity so takes priority
 			if (BOW.addModdedEnchantBonusLevel("apotheosis:true_infinity", 0, checkerBow)) BOW.removeEnchant(Enchantments.INFINITY);
 		}
@@ -210,7 +210,7 @@ public class ZorraAltarManager {
 		int lvl = data.enchantmentLevel, cost;
 		if (lvl <= 1) cost = data.enchantment.getMinEnchantability(1);
 		else cost = data.enchantment.getMinEnchantability(lvl) - (data.enchantment.getMinEnchantability(lvl - 1) / 2);
-		return Math.max(1, (int)(cost * Config.altarCostMult));
+		return Math.max(1, (int)(cost * Configuration.ALTAR.altarCostMult));
 	}
 	
 	/**

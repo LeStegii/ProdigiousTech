@@ -4,7 +4,7 @@ import lykrast.prodigytech.common.block.BlockEnergionCrystal;
 import lykrast.prodigytech.common.block.BlockMachineActiveable;
 import lykrast.prodigytech.common.init.ModBlocks;
 import lykrast.prodigytech.common.init.ModItems;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.ProdigyInventoryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -20,7 +20,7 @@ public class TileCrystalCutter extends TileHotAirMachine {
 
 	public TileCrystalCutter() {
 		super(1, 0.8F);
-		processTimeMax = Config.automaticCrystalCutterHarvestTime * 10;
+		processTimeMax = Configuration.MACHINES.automaticCrystalCutterHarvestTime * 10;
 		processing = false;
 	}
 
@@ -80,7 +80,7 @@ public class TileCrystalCutter extends TileHotAirMachine {
         		{
         			if (clockTime <= 1)
         			{
-						clockTime = (short) Config.automaticCrystalCutterIdleTime;
+						clockTime = (short) Configuration.MACHINES.automaticCrystalCutterIdleTime;
 						IBlockState target = world.getBlockState(getTarget());
 						if (target.getBlock() == ModBlocks.energionCrystal && BlockEnergionCrystal.getAge(target) >= 5)
 						{
@@ -141,7 +141,7 @@ public class TileCrystalCutter extends TileHotAirMachine {
 	public void readFromNBT(NBTTagCompound compound)
     {
         super.readFromNBT(compound);
-        processTimeMax = Config.automaticCrystalCutterHarvestTime * 10;
+        processTimeMax = Configuration.MACHINES.automaticCrystalCutterHarvestTime * 10;
         clockTime = compound.getShort("ClockTime");
         processing = compound.getBoolean("Processing");
     }

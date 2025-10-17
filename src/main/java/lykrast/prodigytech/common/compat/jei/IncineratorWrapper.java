@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import lykrast.prodigytech.common.init.ModItems;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
@@ -24,7 +24,7 @@ public class IncineratorWrapper implements IRecipeWrapper {
 	{
 		output = new ItemStack(ModItems.ash);
 		
-		int outChance = (int)(Config.incineratorChance * 100);
+		int outChance = (int)(Configuration.MACHINES.incineratorChance * 100);
 		
 		if (outChance < 1) chance = "< 1%";
 		else if (outChance >= 100) chance = "";

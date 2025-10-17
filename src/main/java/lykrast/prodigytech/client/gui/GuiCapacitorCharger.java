@@ -5,7 +5,7 @@ import com.google.common.collect.ImmutableList;
 import lykrast.prodigytech.common.gui.ContainerCapacitorCharger;
 import lykrast.prodigytech.common.tileentity.TileCapacitorCharger;
 import lykrast.prodigytech.common.tileentity.TileHotAirMachineSimple;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.TooltipUtil;
 import lykrast.prodigytech.core.ProdigyTech;
 import net.minecraft.client.renderer.GlStateManager;
@@ -67,7 +67,7 @@ public class GuiCapacitorCharger extends GuiInventory {
     }
     
 	private int getProcessLeftScaled(int pixels) {
-		int i = Config.capacitorChargerChargeTime * 10;
+		int i = Configuration.MACHINES.capacitorChargerChargeTime * 10;
 		int j = MathHelper.clamp(tile.getField(0), 0, i);
 		return j * pixels / i;
 	}

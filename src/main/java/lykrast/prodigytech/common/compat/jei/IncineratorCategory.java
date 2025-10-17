@@ -2,7 +2,7 @@ package lykrast.prodigytech.common.compat.jei;
 
 import com.google.common.collect.ImmutableList;
 
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.gui.IDrawableAnimated;
@@ -17,9 +17,9 @@ public class IncineratorCategory extends ProdigyCategory<IncineratorWrapper> {
 
 	public IncineratorCategory(IGuiHelper guiHelper) {
 		super(guiHelper, guiHelper.drawableBuilder(ProdigyTechJEI.GUI, 0, 36, 82, 26)
-				.addPadding(0, (int)(Config.incineratorChance * 100) >= 100 ? 0 : 10 , 0, 0).build(), UID);
+				.addPadding(0, (int)(Configuration.MACHINES.incineratorChance * 100) >= 100 ? 0 : 10 , 0, 0).build(), UID);
 		
-		this.arrow = guiHelper.createAnimatedDrawable(ProdigyTechJEI.getDefaultProcessArrow(guiHelper), Config.incineratorProcessTime, IDrawableAnimated.StartDirection.LEFT, false);
+		this.arrow = guiHelper.createAnimatedDrawable(ProdigyTechJEI.getDefaultProcessArrow(guiHelper), Configuration.MACHINES.incineratorProcessTime, IDrawableAnimated.StartDirection.LEFT, false);
 	}
 	
 	@Override

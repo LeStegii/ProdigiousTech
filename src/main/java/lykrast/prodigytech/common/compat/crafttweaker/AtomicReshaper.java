@@ -9,7 +9,7 @@ import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.oredict.IOreDictEntry;
 import lykrast.prodigytech.common.recipe.AtomicReshaperManager;
 import lykrast.prodigytech.common.recipe.AtomicReshaperManager.AtomicReshaperRecipe;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.Optional;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -40,9 +40,9 @@ public class AtomicReshaper {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
 		if (primordium <= 0) throw new IllegalArgumentException("Primordium unit amount must be positive");
-		else if (primordium > Config.atomicReshaperMaxPrimordium * 100) throw new IllegalArgumentException("Recipe requires more Primordium units than the Atomic Reshaper is configured to hold");
-		else if (primordium > (Config.atomicReshaperMaxPrimordium - 1) * 100) CraftTweakerAPI.logWarning("Recipe requires too many Primordium units to be reliably made, consider reducing it to " + ((Config.atomicReshaperMaxPrimordium - 1) * 100) + " or less or increase the Atomic Reshaper's Primordium capacity");
-		if (time <= 0) time = Config.atomicReshaperProcessTime;
+		else if (primordium > Configuration.MACHINES.atomicReshaperMaxPrimordium * 100) throw new IllegalArgumentException("Recipe requires more Primordium units than the Atomic Reshaper is configured to hold");
+		else if (primordium > (Configuration.MACHINES.atomicReshaperMaxPrimordium - 1) * 100) CraftTweakerAPI.logWarning("Recipe requires too many Primordium units to be reliably made, consider reducing it to " + ((Configuration.MACHINES.atomicReshaperMaxPrimordium - 1) * 100) + " or less or increase the Atomic Reshaper's Primordium capacity");
+		if (time <= 0) time = Configuration.MACHINES.atomicReshaperProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, primordium, time)));
 	}
 	
@@ -51,9 +51,9 @@ public class AtomicReshaper {
 		if (in == null) throw new IllegalArgumentException("Input cannot be null");
 		if (out == null) throw new IllegalArgumentException("Output cannot be null");
 		if (primordium <= 0) throw new IllegalArgumentException("Primordium unit amount must be positive");
-		else if (primordium > Config.atomicReshaperMaxPrimordium * 100) throw new IllegalArgumentException("Recipe requires more Primordium units than the Atomic Reshaper is configured to hold");
-		else if (primordium > (Config.atomicReshaperMaxPrimordium - 1) * 100) CraftTweakerAPI.logWarning("Recipe requires too many Primordium units to be reliably made, consider reducing it to " + ((Config.atomicReshaperMaxPrimordium - 1) * 100) + " or less or increase the Atomic Reshaper's Primordium capacity");
-		if (time <= 0) time = Config.atomicReshaperProcessTime;
+		else if (primordium > Configuration.MACHINES.atomicReshaperMaxPrimordium * 100) throw new IllegalArgumentException("Recipe requires more Primordium units than the Atomic Reshaper is configured to hold");
+		else if (primordium > (Configuration.MACHINES.atomicReshaperMaxPrimordium - 1) * 100) CraftTweakerAPI.logWarning("Recipe requires too many Primordium units to be reliably made, consider reducing it to " + ((Configuration.MACHINES.atomicReshaperMaxPrimordium - 1) * 100) + " or less or increase the Atomic Reshaper's Primordium capacity");
+		if (time <= 0) time = Configuration.MACHINES.atomicReshaperProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, out, primordium, time)));
 	}
 	
@@ -67,9 +67,9 @@ public class AtomicReshaper {
 		}
 		else if (weights.length != outputs.length) throw new IllegalArgumentException("Output array and weight array must have the same length");
 		if (primordium <= 0) throw new IllegalArgumentException("Primordium unit amount must be positive");
-		else if (primordium > Config.atomicReshaperMaxPrimordium * 100) throw new IllegalArgumentException("Recipe requires more Primordium units than the Atomic Reshaper is configured to hold");
-		else if (primordium > (Config.atomicReshaperMaxPrimordium - 1) * 100) CraftTweakerAPI.logWarning("Recipe requires too many Primordium units to be reliably made, consider reducing it to " + ((Config.atomicReshaperMaxPrimordium - 1) * 100) + " or less or increase the Atomic Reshaper's Primordium capacity");
-		if (time <= 0) time = Config.atomicReshaperProcessTime;
+		else if (primordium > Configuration.MACHINES.atomicReshaperMaxPrimordium * 100) throw new IllegalArgumentException("Recipe requires more Primordium units than the Atomic Reshaper is configured to hold");
+		else if (primordium > (Configuration.MACHINES.atomicReshaperMaxPrimordium - 1) * 100) CraftTweakerAPI.logWarning("Recipe requires too many Primordium units to be reliably made, consider reducing it to " + ((Configuration.MACHINES.atomicReshaperMaxPrimordium - 1) * 100) + " or less or increase the Atomic Reshaper's Primordium capacity");
+		if (time <= 0) time = Configuration.MACHINES.atomicReshaperProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(in, primordium, time, outputs, weights)));
 	}
 	

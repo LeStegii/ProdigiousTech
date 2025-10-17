@@ -5,7 +5,7 @@ import java.util.List;
 
 import lykrast.prodigytech.client.gui.GuiPrimordialisReactor;
 import lykrast.prodigytech.common.recipe.PrimordialisReactorManager;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.RecipeUtil;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
@@ -24,7 +24,7 @@ public class PrimordialisReactorCategory extends ProdigyCategory<PrimordialisRea
 		super(guiHelper, guiHelper.createDrawable(ProdigyTechJEI.GUI, 0, 196, 126, 29), UID);
 
 		bubbles = guiHelper.createAnimatedDrawable(guiHelper.createDrawable(GuiPrimordialisReactor.GUI, 176, 35, 12, 29), 
-				Config.primordialisReactorCycleTime, IDrawableAnimated.StartDirection.BOTTOM, false);
+				Configuration.MACHINES.primordialisReactorCycleTime, IDrawableAnimated.StartDirection.BOTTOM, false);
 	}
 	
 	@Override

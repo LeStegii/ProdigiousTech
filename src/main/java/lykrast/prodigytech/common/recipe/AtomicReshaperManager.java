@@ -10,7 +10,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import lykrast.prodigytech.common.init.ModBlocks;
 import lykrast.prodigytech.common.init.ModItems;
 import lykrast.prodigytech.common.recipe.AtomicReshaperManager.AtomicReshaperRecipe;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.RecipeUtil;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -31,9 +31,9 @@ public class AtomicReshaperManager extends SimpleRecipeManagerAbstract<AtomicRes
 	
 	@Override
 	public void init() {
-		addRecipe("treeSapling", Config.atomicReshaperProcessTime, 50, new ItemStack(ModBlocks.zorraSapling));
+		addRecipe("treeSapling", Configuration.MACHINES.atomicReshaperProcessTime, 50, new ItemStack(ModBlocks.zorraSapling));
 		//Using Botania's Orechid weights
-		addRecipe("stone", Config.atomicReshaperProcessTime, 20, createOreDictOutputs(
+		addRecipe("stone", Configuration.MACHINES.atomicReshaperProcessTime, 20, createOreDictOutputs(
 				"oreAluminum", 3940,
 				"oreAmber", 2075,
 				"oreApatite", 1595,
@@ -60,7 +60,7 @@ public class AtomicReshaperManager extends SimpleRecipeManagerAbstract<AtomicRes
 				"oreOsmium", 6915,
 				"oreQuartzBlack", 5535
 				));
-		addRecipe("cobblestone", Config.atomicReshaperProcessTime, 4, createOreDictOutputs(
+		addRecipe("cobblestone", Configuration.MACHINES.atomicReshaperProcessTime, 4, createOreDictOutputs(
 				"stoneGranite", 1,
 				"stoneDiorite", 1,
 				"stoneAndesite", 1,
@@ -91,11 +91,11 @@ public class AtomicReshaperManager extends SimpleRecipeManagerAbstract<AtomicRes
 //			}
 //		});
 		
-		addRecipe("sand", Config.atomicReshaperProcessTime, 1, new ItemStack(Blocks.DIRT));
-		addRecipe("dirt", Config.atomicReshaperProcessTime, 3, new ItemStack(Blocks.CLAY));
-		addRecipe("paper", Config.atomicReshaperProcessTime, 2, new ItemStack(ModItems.circuitPlate));
-		addRecipe("dustAsh", Config.atomicReshaperProcessTime, 2, new ItemStack(Items.GUNPOWDER));
-		addRecipe(new ItemStack(ModItems.infernoCrystal), Config.atomicReshaperProcessTime, 5, new ItemStack(ModItems.aeternusCrystal));
+		addRecipe("sand", Configuration.MACHINES.atomicReshaperProcessTime, 1, new ItemStack(Blocks.DIRT));
+		addRecipe("dirt", Configuration.MACHINES.atomicReshaperProcessTime, 3, new ItemStack(Blocks.CLAY));
+		addRecipe("paper", Configuration.MACHINES.atomicReshaperProcessTime, 2, new ItemStack(ModItems.circuitPlate));
+		addRecipe("dustAsh", Configuration.MACHINES.atomicReshaperProcessTime, 2, new ItemStack(Items.GUNPOWDER));
+		addRecipe(new ItemStack(ModItems.infernoCrystal), Configuration.MACHINES.atomicReshaperProcessTime, 5, new ItemStack(ModItems.aeternusCrystal));
 	}
 	
 	private static Object[] createOreDictOutputs(Object... outputs) {

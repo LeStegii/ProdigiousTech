@@ -4,7 +4,7 @@ import lykrast.prodigytech.common.block.BlockMachineActiveable;
 import lykrast.prodigytech.common.capability.CapabilityHotAir;
 import lykrast.prodigytech.common.capability.HotAirMachine;
 import lykrast.prodigytech.common.item.IHeatCapacitor;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.ProdigyInventoryHandler;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -67,7 +67,7 @@ public class TileCapacitorCharger extends TileMachineInventory implements ITicka
         		//Cycle hasn't started, start it
             	if (progressCycle <= 0) progressCycle = 1;
             	//Cycle has finished
-            	else if (progressCycle > Config.capacitorChargerChargeTime * 10) {
+            	else if (progressCycle > Configuration.MACHINES.capacitorChargerChargeTime * 10) {
                 	ItemStack capacitor = getStackInSlot(0);
 					((IHeatCapacitor)capacitor.getItem()).charge(capacitor, 20);
             		shouldDirty = true;

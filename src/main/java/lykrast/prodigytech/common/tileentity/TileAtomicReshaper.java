@@ -6,7 +6,7 @@ import lykrast.prodigytech.common.capability.HotAirMachine;
 import lykrast.prodigytech.common.init.ModItems;
 import lykrast.prodigytech.common.recipe.AtomicReshaperManager;
 import lykrast.prodigytech.common.recipe.AtomicReshaperManager.AtomicReshaperRecipe;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.ProdigyInventoryHandler;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -50,7 +50,7 @@ public class TileAtomicReshaper extends TileMachineInventory implements ITickabl
 	
 	private int canSmeltPrimordium()
 	{
-		if (getStackInSlot(0).isEmpty() || primordium > ((Config.atomicReshaperMaxPrimordium - 1) * 100)) return 0;
+		if (getStackInSlot(0).isEmpty() || primordium > ((Configuration.MACHINES.atomicReshaperMaxPrimordium - 1) * 100)) return 0;
 		else return 100;
 	}
 

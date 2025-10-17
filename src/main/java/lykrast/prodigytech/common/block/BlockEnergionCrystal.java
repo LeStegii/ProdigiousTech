@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import lykrast.prodigytech.common.init.ModItems;
 import lykrast.prodigytech.common.util.AABBUtil;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -64,7 +64,7 @@ public class BlockEnergionCrystal extends BlockGeneric implements ICustomStateMa
         int age = getAge(state);
         
         if (age < 5) {
-            if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt((int)(25 / Config.energionGrowthSpeed) + 1) == 0)) {
+            if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt((int)(25 / Configuration.POWER.energionGrowthSpeed) + 1) == 0)) {
                 worldIn.setBlockState(pos, this.withAge(age + 1), 2);
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
             }

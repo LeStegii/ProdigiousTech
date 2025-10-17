@@ -7,7 +7,7 @@ import java.util.List;
 import lykrast.prodigytech.client.gui.GuiSolderer;
 import lykrast.prodigytech.common.init.ModItems;
 import lykrast.prodigytech.common.recipe.SoldererManager.SoldererRecipe;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableAnimated;
@@ -38,7 +38,7 @@ public class SoldererWrapper implements IRecipeWrapper {
 		
 		arrow = guiHelper.createAnimatedDrawable(ProdigyTechJEI.getDefaultProcessArrow(guiHelper), recipe.getTimeTicks(), IDrawableAnimated.StartDirection.LEFT, false);
 		
-		goldScale = goldAmount * 52 / Config.soldererMaxGold;
+		goldScale = goldAmount * 52 / Configuration.MACHINES.soldererMaxGold;
 		goldGauge = guiHelper.createDrawable(GuiSolderer.GUI, 176, 35 + (52 - goldScale), 4, goldScale);
 	}
 

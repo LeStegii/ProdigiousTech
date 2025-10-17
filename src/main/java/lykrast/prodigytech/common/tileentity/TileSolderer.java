@@ -5,7 +5,7 @@ import lykrast.prodigytech.common.capability.CapabilityHotAir;
 import lykrast.prodigytech.common.capability.HotAirMachine;
 import lykrast.prodigytech.common.recipe.SoldererManager;
 import lykrast.prodigytech.common.recipe.SoldererManager.SoldererRecipe;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.ProdigyInventoryHandler;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -56,7 +56,7 @@ public class TileSolderer extends TileMachineInventory implements ITickable, IPr
 		if (getStackInSlot(1).isEmpty() || hotAir.getInAirTemperature() < 125) return 0;
 		
 		int amount = SoldererManager.getGoldAmount(getStackInSlot(1));
-		if (amount > (Config.soldererMaxGold - gold)) return 0;
+		if (amount > (Configuration.MACHINES.soldererMaxGold - gold)) return 0;
 		else return amount;
 	}
 

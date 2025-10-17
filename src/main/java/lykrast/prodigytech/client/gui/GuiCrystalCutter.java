@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 
 import lykrast.prodigytech.common.gui.ContainerCrystalCutter;
 import lykrast.prodigytech.common.tileentity.TileCrystalCutter;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.TooltipUtil;
 import lykrast.prodigytech.core.ProdigyTech;
 import net.minecraft.client.renderer.GlStateManager;
@@ -37,7 +37,7 @@ public class GuiCrystalCutter extends GuiInventory {
 
         if (i == 0)
         {
-            i = Config.automaticCrystalCutterHarvestTime * 10;
+            i = Configuration.MACHINES.automaticCrystalCutterHarvestTime * 10;
         }
         
         int j = MathHelper.clamp(i - tile.getField(0), 0, i);

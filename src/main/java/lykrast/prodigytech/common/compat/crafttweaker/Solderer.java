@@ -6,7 +6,7 @@ import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IItemStack;
 import lykrast.prodigytech.common.recipe.SoldererManager;
 import lykrast.prodigytech.common.recipe.SoldererManager.SoldererRecipe;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.Optional;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -29,8 +29,8 @@ public class Solderer {
 		if (pattern == null) throw new IllegalArgumentException("Pattern cannot be null");
 		if (output == null) throw new IllegalArgumentException("Output cannot be null");
 		if (gold <= 0) throw new IllegalArgumentException("Gold amount must be positive");
-		else if (gold > Config.soldererMaxGold) throw new IllegalArgumentException("Recipe requires more Gold than the Solderer is configured to hold");
-		if (time <= 0) time = Config.soldererProcessTime;
+		else if (gold > Configuration.MACHINES.soldererMaxGold) throw new IllegalArgumentException("Recipe requires more Gold than the Solderer is configured to hold");
+		if (time <= 0) time = Configuration.MACHINES.soldererProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(pattern, additive, output, gold, time)));
 	}
 	
@@ -39,8 +39,8 @@ public class Solderer {
 		if (pattern == null) throw new IllegalArgumentException("Pattern cannot be null");
 		if (output == null) throw new IllegalArgumentException("Output cannot be null");
 		if (gold <= 0) throw new IllegalArgumentException("Gold amount must be positive");
-		else if (gold > Config.soldererMaxGold) throw new IllegalArgumentException("Recipe requires more Gold than the Solderer is configured to hold");
-		if (time <= 0) time = Config.soldererProcessTime;
+		else if (gold > Configuration.MACHINES.soldererMaxGold) throw new IllegalArgumentException("Recipe requires more Gold than the Solderer is configured to hold");
+		if (time <= 0) time = Configuration.MACHINES.soldererProcessTime;
 		CraftTweakerAPI.apply(new Add(recipe(pattern, output, gold, time)));
 	}
 	

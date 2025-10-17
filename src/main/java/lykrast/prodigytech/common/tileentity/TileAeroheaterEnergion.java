@@ -4,7 +4,7 @@ import lykrast.prodigytech.common.block.BlockHotAirMachine;
 import lykrast.prodigytech.common.capability.CapabilityHotAir;
 import lykrast.prodigytech.common.capability.HotAirAeroheater;
 import lykrast.prodigytech.common.init.ModItems;
-import lykrast.prodigytech.common.util.Config;
+import lykrast.prodigytech.common.util.Configuration;
 import lykrast.prodigytech.common.util.ProdigyInventoryHandler;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -46,7 +46,7 @@ public class TileAeroheaterEnergion extends TileMachineInventory implements ITic
         	ItemStack fuel = getStackInSlot(0);
         	
 			if (!isProcessing() && !fuel.isEmpty() && !world.isBlockPowered(pos)) {
-				furnaceBurnTime = Config.energionDuration;
+				furnaceBurnTime = Configuration.POWER.energionDuration;
 				currentItemBurnTime = furnaceBurnTime;
 
 				if (isProcessing()) {
